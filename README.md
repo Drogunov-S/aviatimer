@@ -2,10 +2,10 @@
 `mvn clean install`
 
 Для запуска jar файла выполните команду.  
-`java -jar PATH_TO_APP`
+`java -jar PATH_TO_JAR`
 Возможные команды для получения результата программы.
 1) Указать путь к файлу во время запуска программы. 
-`java -jar PATH_TO_FILE PATH_TO_JSON_FILE`
+`java -jar PATH_TO_JAR PATH_TO_JSON_FILE`
 2) Во время запуска указать флаг `MENU`
 Тогда вы сможете указать путь к файлу. 
 Для выхода отправьте `0`;
