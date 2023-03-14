@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ru.drogunov.utils.GetterZonedId;
+import ru.drogunov.utils.TimeUtil;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -41,7 +41,7 @@ public class Ticket {
         return ZonedDateTime.of(
                 departureDate,
                 departureTime,
-                GetterZonedId.getZoneId(destinationName)
+                TimeUtil.getZoneId(destinationName)
         );
     }
     
@@ -49,7 +49,7 @@ public class Ticket {
         return ZonedDateTime.of(
                 arrivalDate,
                 arrivalTime,
-                GetterZonedId.getZoneId(destinationName)
+                TimeUtil.getZoneId(destinationName)
         );
     }
 }

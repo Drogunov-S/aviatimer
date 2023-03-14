@@ -6,11 +6,19 @@ import java.time.Duration;
 import java.util.List;
 
 public class TimeCalculationServiceImpl implements TimeCalculationService {
+    private final TicketService ticketService;
+    
+    public TimeCalculationServiceImpl(TicketService ticketService) {
+        this.ticketService = ticketService;
+    }
+    
     @Override
     public double getTravelTime(List<Ticket> ticketList) {
-        long sum = ticketList.stream()
-                .map(ticket -> Duration.between(ticket.getDepartureDate(), ticket.getArrivalDate()).toMinutes())
-                .mapToLong(Long::longValue).sum();
+        long sum = ticketService.getTravelTime(ticketList)
+                .stream()
+                .map(Duration::toMinutes)
+                .mapToLong(Long::longValue)
+                .sum();
         return (double) sum / ticketList.size();
     }
 }

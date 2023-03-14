@@ -3,11 +3,14 @@ package ru.drogunov.utils;
 import lombok.experimental.UtilityClass;
 
 import java.time.ZoneId;
+import java.time.temporal.TemporalUnit;
 import java.util.HashMap;
 import java.util.Map;
+import java.time.Duration;
+import java.util.logging.SimpleFormatter;
 
 @UtilityClass
-public class GetterZonedId {
+public class TimeUtil {
     private final Map<String, String> ruJavaZoneId = new HashMap<>();
     
     /*
@@ -22,5 +25,10 @@ public class GetterZonedId {
         return ZoneId.of(ruJavaZoneId.get(cityName));
     }
     
+    
+    public String getTime(double time, TemporalUnit temporalUnit) {
+        Duration duration = Duration.of((long) time, temporalUnit);
+        return String.format("%02d:%02d", duration.toHours(), duration.toMinutesPart());
+    }
     
 }
